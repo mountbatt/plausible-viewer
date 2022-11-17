@@ -42,6 +42,24 @@ function hook_plausible_viewer_code() {
 }
 add_action('wp_head', 'hook_plausible_viewer_code');
 
+// Add to end of </body> in frontend
+function hook_plausible_viewer_bodycode() {
+  if(!is_admin()){
+    $options = get_option( 'plausible_viewer_options' );
+    $body_code = $options['bodycode'];
+    if($body_code):
+      if( !current_user_can('edit_posts') ) {
+        echo "<!-- Plausible Code: -->\n";
+        echo $body_code;
+        echo "\n<!-- End of Plausible Code -->\n";
+      } else {
+        echo "<!-- Plausible code disabled cause you are logged in as editor or admin -->";
+      }
+    endif;
+  }
+}
+add_action('wp_footer', 'hook_plausible_viewer_bodycode');
+
 
   
   // DASHBOARD: 
@@ -106,6 +124,7 @@ add_action('wp_head', 'hook_plausible_viewer_code');
         <script>
           jQuery(document).ready(function($) {
             wp.codeEditor.initialize($('.codeeditor'), cm_settings);
+            wp.codeEditor.initialize($('.codeeditor2'), cm_settings);
           })
         </script>
         <style>
@@ -143,6 +162,7 @@ add_action('wp_head', 'hook_plausible_viewer_code');
   
       add_settings_field( 'plv_plugin_setting_shared_url', 'Shared Link', 'plv_plugin_setting_shared_url', 'plausible_viewer', 'plv_settings' );
       add_settings_field( 'plv_plugin_setting_embedcode', 'Embed Code', 'plv_plugin_setting_embedcode', 'plausible_viewer', 'plv_settings' );
+      add_settings_field( 'plv_plugin_setting_bodycode', 'Body Code', 'plv_plugin_setting_bodycode', 'plausible_viewer', 'plv_settings' );
   }
   add_action( 'admin_init', 'plv_register_settings' );
 
@@ -158,7 +178,12 @@ add_action('wp_head', 'hook_plausible_viewer_code');
   
   function plv_plugin_setting_embedcode() {
       $options = get_option( 'plausible_viewer_options' );
-      echo "<div><textarea id='plv_plugin_setting_embedcode_textarea' name='plausible_viewer_options[embedcode]' class='codeeditor' style='width: 80%;' rows='3' />". esc_attr( $options['embedcode'] ) ."</textarea></div><small> Enter the embed Code to enable tracking (optional)<br>Tracking is by default disabled to editors and administrators. Open your website in a private window to test if your tracking works!</small>";
+      echo "<div><textarea id='plv_plugin_setting_embedcode_textarea' name='plausible_viewer_options[embedcode]' class='codeeditor2' style='width: 80%;' rows='3' />". esc_attr( $options['embedcode'] ) ."</textarea></div><small> Enter the embed Code to enable tracking (optional)<br>Tracking is by default disabled to editors and administrators. Open your website in a private window to test if your tracking works!</small>";
+  }
+  
+  function plv_plugin_setting_bodycode() {
+      $options = get_option( 'plausible_viewer_options' );
+      echo "<div><textarea id='plv_plugin_setting_bodycode_textarea' name='plausible_viewer_options[bodycode]' class='codeeditor' style='width: 80%;' rows='3' />". esc_attr( $options['bodycode'] ) ."</textarea></div><small> Enter additional Code for custom tracking (optional)<br>This goes at the end of the body tag.</small>";
   }
   
   function my_plugin_settings_link($links) { 
