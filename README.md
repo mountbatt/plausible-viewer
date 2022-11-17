@@ -2,7 +2,7 @@
 Embeds plausibe.io Analytics and displays plausible.io or self-hosted plausible iFrames in WordPress. 
 
 ## Setup
-![Bildschirm­foto 2022-11-17 um 02 40 10](https://user-images.githubusercontent.com/2411246/202332978-7d050e2c-185b-4f9e-a3af-b653df919314.png)
+![Bildschirm­foto 2022-11-17 um 10 05 00](https://user-images.githubusercontent.com/2411246/202403155-a930949d-6d20-4bd7-aafb-df23242c4dd1.png)
 
 ## Dashboard
 ![Bildschirm­foto 2022-11-17 um 02 40 59](https://user-images.githubusercontent.com/2411246/202333073-9809decb-ff9f-4b69-ac8d-eea806e1f35f.png)
