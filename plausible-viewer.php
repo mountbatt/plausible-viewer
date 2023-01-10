@@ -186,11 +186,11 @@ add_action('wp_footer', 'hook_plausible_viewer_bodycode');
       echo "<div><textarea id='plv_plugin_setting_bodycode_textarea' name='plausible_viewer_options[bodycode]' class='codeeditor' style='width: 80%;' rows='3' />". esc_attr( $options['bodycode'] ) ."</textarea></div><small> Enter additional Code for custom tracking (optional)<br>This goes at the end of the body tag.</small>";
   }
   
-  function my_plugin_settings_link($links) { 
+  function plv_plugin_settings_link($links) { 
     $settings_link = '<a href="options-general.php?page=plausible_viewer">'.esc_html__( 'Settings', 'plausibleviewer' ).'</a>'; 
     array_unshift($links, $settings_link); 
     return $links; 
   }
   $plugin = plugin_basename(__FILE__); 
-  add_filter("plugin_action_links_$plugin", 'my_plugin_settings_link' );
+  add_filter("plugin_action_links_$plugin", 'plv_plugin_settings_link' );
 
