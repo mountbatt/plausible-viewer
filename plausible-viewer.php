@@ -5,13 +5,13 @@
  * @package       PLAUSIBLEV
  * @author        Tobias Battenberg
  * @license       gplv2
- * @version       1.0.0
+ * @version       1.0.1
  *
  * @wordpress-plugin
  * Plugin Name:   Plausible Viewer
  * Plugin URI:    https://github.com/mountbatt/wp-plausible-viewer
  * Description:   Embeds plausibe.io Analytics and displays plausible.io or selfhostet plausible iframes in WordPress. 
- * Version:       1.0.0
+ * Version:       1.0.1
  * Author:        Tobias Battenberg
  * Author URI:    https://github.com/mountbatt/
  * Text Domain:   plausible-viewer
