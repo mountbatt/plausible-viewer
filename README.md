@@ -7,6 +7,9 @@ Embeds plausibe.io Analytics and displays plausible.io or self-hosted plausible 
 ## Dashboard
 ![Bildschirm­foto 2022-11-17 um 02 40 59](https://user-images.githubusercontent.com/2411246/202333073-9809decb-ff9f-4b69-ac8d-eea806e1f35f.png)
 
+## Running
+Note that logged in administrators are not counted by the plugin. So you need to open a private window in your browser to see if your tracking is working.
+
 ## Troubleshoot
 If you have problems viewing the reports in WordPress, it may be that your  (self-hosted) Plausible instance does not allow embedding the repots as iFrame in other websites. Its based on the **Same-Origin_-Policy** of X-Frame-Options
 (Look in your browsers Dev-Tools Console for error messages)
