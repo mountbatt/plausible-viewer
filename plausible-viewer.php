@@ -5,7 +5,7 @@
  * @package       PLAUSIBLEV
  * @author        Tobias Battenberg
  * @license       gplv2
- * @version       1.0.1
+ * @version       1.0.2
  *
  * @wordpress-plugin
  * Plugin Name:   Plausible Viewer
@@ -91,7 +91,7 @@ add_action('wp_footer', 'hook_plausible_viewer_bodycode');
       add_menu_page(
           'Plausible Viewer',
           'Plausible',
-          'manage_options',
+          'edit_posts',
           'plausibleviewer',
           'plausibleviewer_options_page_html',
           plugin_dir_url(__FILE__) . 'logo.svg',
@@ -112,7 +112,7 @@ add_action('wp_footer', 'hook_plausible_viewer_bodycode');
   }
   
   function plv_add_settings_page() {
-      add_options_page( 'Plausible Viewer Settings', 'Plausible Settings', 'manage_options', 'plausible_viewer', 'plv_render_plugin_settings_page' );
+      add_options_page( 'Plausible Viewer Settings', 'Plausible Settings', 'edit_posts', 'plausible_viewer', 'plv_render_plugin_settings_page' );
   }
   add_action( 'admin_menu', 'plv_add_settings_page' );
 
